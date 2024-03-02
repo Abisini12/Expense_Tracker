@@ -1,0 +1,291 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'welcss.css' %}">
+    <!-- Add this script to include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            /* background: rgba(54, 162, 235, 0.2); */
+        }
+
+        .data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px;
+        }
+
+        .chartMenu p {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .chartCard {
+            width: 100%;
+            /* height: calc(100vh - 40px); */
+            /* height: 100%; */
+            /* background: rgba(54, 162, 235, 0.2); */
+            /* background: rgba(0,0, 0, 0.2); */
+            background: rgba(140, 134, 134, 0.18);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+        .chartBox {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 20px;
+            height: 320px;
+            background: white;
+        }
+
+        .page-body {
+            margin: 10px;
+        }
+
+        .offcanvas-backdrop.show {
+            opacity: .5;
+            height: 100%;
+        }
+
+        @media (min-width:1023px) {
+            .chartBox {
+                width: 450px;
+                height: 450px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="container-fluid p-0 d-flex h-100 w-100"> -->
+    <div class="container-fluid p-0 d-flex">
+        <!-- h 100 is made to make sidebar to be views in full length this is done in expensecss.css for that page alone -->
+        <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3  offcanvas-md offcanvas-start"
+            style="width: 280px; /*position: fixed; height: inherit; overflow-y: auto;*/ height:inherit;">
+            <a href="#" class="navbar-brand">
+
+
+                <img src="/static/media/images/bblogo.png" class=" me-2" width="50px" height="50px"  style="border-radius: 50%;"  alt="">
+                <span style="font-size: large;">Budget</span><span class="text-warning" style="font-size: large;">Buddy</span>
+            </a>
+            <hr>
+            <ul class="mynav nav nav-pills flex-column mb-auto">
+                <li class="nav-item mb-1">
+                    <a href="{% url 'homepage' %}" class="active">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
+                <!-- <li class="nav-item mb-1">
+                    <a href="#" class="">
+                        <i class="fa-solid fa-bell"></i>
+                        Notifications
+                        <span class="notification-badge">5</span>
+                    </a>
+                </li> -->
+                <li class="nav-item mb-1">
+                    <a href="{% url 'addexpense' %}" class="">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Expense
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="{% url 'report' %}">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Reports
+                    </a>
+                </li>
+                <!-- <li class="nav-item mb-1">
+                    <a href="#" class="">
+                        <i class="fa-solid fa-user"></i>
+                        Profile
+                    </a>
+                </li> -->
+                <li class="nav-item mb-1">
+                    <a href="{% url 'help' %}" class="">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Help
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a href="{% url 'logout' %}">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="d-flex">
+                <img src="/static/media/images/profile.png" class="rounded me-2" id="profileimg" width="40px"
+                    height="40px" alt="">
+                <span>
+                    <h6 class="mt-1 mb-0">Abisini</h6>
+                    <small>abisinisr@gmail.com</small>
+                </span>
+            </div>
+        </div>
+
+        <div class="bg-light flex-fill">
+            {% block content %}{% endblock %}
+        </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <script>
+            // setup 
+            // const data = {
+            //   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            //   datasets: [{
+            //     label: 'Weekly Sales',
+            //     data: [18, 12, 6, 9, 12, 3, 9],
+            const data = {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [{
+                    label: 'Monthly Expense',
+                    data: [
+                        10, 12, 23, 56, 12, 56, 90, 12, 5, 34, 89, 12
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 26, 104, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(0, 0, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 26, 104, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            // config 
+            const config = {
+                type: 'bar',
+                data,
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // render init block
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+            // const myChart1=new Chart(  document.getElementById('myChart1'),
+            //   config);
+            // Instantly assign Chart.js version
+            const chartVersion = document.getElementById('chartVersion');
+            chartVersion.innerText = Chart.version;
+        </script>
+
+        <script>
+            fetch('/expense_pie_chart/')
+                .then(response => response.json())
+                .then(data => {
+                    // const xValues = Object.keys(data);
+                    // const yValues = Object.values(data);
+
+                    const orderedXValues = ['Outfits', 'Technology', 'Groceries', 'Stationery', 'Cosmetics', 'Others'];
+
+                    const xValues = orderedXValues;
+                    // const y = Object.values(data);
+
+                    // const transformedData = orderedXValues.map(x => data[x] || 0);
+
+                    // // const xValues = Object.keys(data).filter(key => orderedXValues.includes(key));
+                    // const yValues = transformedData;
+
+                    const yValues = orderedXValues.map(x => data[x] || 0);
+                    const barColors = [
+                        "pink",
+                        "rgb(133, 222, 247)",
+                        "rgb(188, 247, 133)",
+                        "rgb(247, 255, 101)",
+                        "rgb(250, 59, 59)",
+                        "violet"
+                    ];
+
+                    // Get all elements with the class 'card-text'
+                    const cardTextElements = document.querySelectorAll('.card-text');
+
+                    // Loop through each card-text element and update its content with the corresponding value from yValues
+                    cardTextElements.forEach((element, index) => {
+                        element.textContent = `Expense: Rs ${yValues[index]}`;
+                    });
+
+                    new Chart("myChart1", {
+                        type: "doughnut",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                backgroundColor: barColors,
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: "Category Expense Summary"
+                            }
+                        }
+
+                    });
+                })
+        </script>
+
+
+</body>
+
+</html>

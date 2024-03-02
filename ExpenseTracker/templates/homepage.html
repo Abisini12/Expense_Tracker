@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-2 d-md-none d-flex" id="sidebar">
+    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        <i class="fa-solid fa-bars" style="margin-right: 10px;"></i>
+    </a>
+    <span>Budget</span><span class="text-warning">Buddy</span>
+</div>
+<!-- <div class="imgshow">
+  <img src="/static/media/images/welcomeimg5.png">
+</div> -->
+
+<div id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000" >
+
+<!-- data-pause="false"> -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="/static/media/images/welcomeimg1.png" >
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="/static/media/images/welcomeimg5.png">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="/static/media/images/welcomeimg3.png" >
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="/static/media/images/welcomeimg4.png" >
+      </div>
+    </div>
+  </div>
+<!-- Graph including -->
+<div class="chartCard">
+    <h4 style="margin-top: 20px;
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    color: black;
+    /*color: #ff9b1e;*/">Category<span
+            style="color: rgb(247 29 29); font-size: inherit !important;">Expense</span>Summary</h4>
+    <div class="chartBox">
+        <canvas id="myChart1" style="width:auto; max-width:600px;height:500px; "></canvas>
+    </div>
+</div>
+
+<!-- data category summary -->
+<div class="row">
+    <!-- <div class="col-sm-6"> -->
+        <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="/static/media/images/outfits.png">
+        <div class="card-body">
+          <h5 class="card-title">Outfits</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6"> -->
+        <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="/static/media/images/technology.png">
+        <div class="card-body">
+          <h5 class="card-title">Technology</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6"> -->
+        <!-- <div class="col-md-4 pr-0" style="overflow: hidden;"> -->
+            <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="/static/media/images/groceries.png">
+          <div class="card-body">
+            <h5 class="card-title">Groceries</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-sm-6"> -->
+        <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="/static/media/images/stationery.png">
+        <div class="card-body">
+          <h5 class="card-title">Stationery</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6"> -->
+        <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="/static/media/images/cosmetics.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Cosmetics</h5>
+          <p class="card-text"></p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-sm-6"> -->
+        <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="/static/media/images/others.png">
+          <div class="card-body">
+            <h5 class="card-title">Others</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+{% endblock %}

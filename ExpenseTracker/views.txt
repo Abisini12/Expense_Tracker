@@ -1,0 +1,254 @@
+from django.template import loader
+from .models import Userinfo,reportinfo
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,HttpResponseBadRequest
+from django.contrib.auth import login,authenticate,logout
+from django.contrib.auth.models import User
+from django.contrib import messages
+
+from .forms import LoginForm
+
+def ExpenseTracker(request):
+    # return HttpResponse("Hello world!")
+    template=loader.get_template('basic.html')
+    return HttpResponse(template.render())
+
+def signup(request):
+    if request.method =='POST':
+         username=request.POST['username']
+         name=request.POST['name']
+         email=request.POST['email']
+         role=request.POST['role']
+         phone=request.POST['phone']
+         password=request.POST['password']
+         cpassword=request.POST['cpassword']
+
+         data=Userinfo(username=username,name=name,email=email,role=role,phone=phone,password=password,cpassword=cpassword)
+         data.save()
+         return redirect('login')
+    return render(request,'signupfinal.html')
+        
+    
+
+# def login(request):
+#     if request.method=='GET':     
+    
+#       username=request.GET.get('username')
+#       password=request.GET.get('password')
+#       user=User.objects.get(username=username)
+#       authentication= authenticate(request, username=user.username,password=user.password)
+#     #   template=loader.get_template('login.html')
+#       if authentication:
+#           login(request, authentication)
+#           return redirect('homepage')
+          
+#     # return HttpResponse(template.render())
+#     return render(request,'login.html')
+
+def login(request):
+    if request.method == 'GET':
+        username = request.GET.get('username')
+        password = request.GET.get('password')
+
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            # Handle the case where the user does not exist
+            return render(request, 'login.html', {'error_message': 'Invalid username or password'})
+
+        # Use check_password for secure password comparison
+        if user.check_password(password):
+            authentication = authenticate(request, username=user.username, password=password)
+            if authentication:
+                login(request, authentication)
+                return redirect('homepage')
+            else:
+                return render(request, 'login.html', {'error_message': 'Invalid username or password'})
+        else:
+            return render(request, 'login.html', {'error_message': 'Invalid username or password'})
+
+    return render(request, 'login.html')
+
+def homepage(request):
+    template=loader.get_template('home.html')
+    return HttpResponse(template.render())
+
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from .forms import LoginForm
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)  # Pass the POST data to the form
+#         if form.is_valid():
+#             # Move the authenticate function outside of form validation
+#             username = form.cleaned_data["username"]
+#             password = form.cleaned_data["password"]
+
+#             new_user = authenticate(request, username=username, password=password)
+#             if new_user:
+#                 login(request, new_user)
+#                 return redirect('homepage')
+#             else:
+#                 return redirect('signup')
+#         else:
+#             messages.error(request, 'Invalid username or password')
+
+
+#         return render(request, 'login.html', {'form': form})
+#     else:
+#       pass
+
+
+def login_view(request):
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'login.html', {'form': form})
+    
+    elif request.method == 'POST':
+        form = LoginForm(request.POST)
+        
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            user = authenticate(request, username=username, password=password)
+            
+            if user:
+                login(request, user)
+                return redirect('homepage')
+            else:
+                return redirect('signup')
+
+        # messages.error(request, 'Invalid username or password')
+        return render(request, 'login.html', {'form': form})
+    
+def logout_view(request):
+    logout(request)
+
+    return redirect('login')
+
+# def addexpense(request):
+#     if request.method =='POST':
+#          category=request.POST['category']
+#          purchase_product=request.POST['purchase_product']
+#          purchase_date=request.POST['purchase_date']
+#          price=request.POST['price']
+#          bill_receipt=request.POST['bill_receipt']
+#          number_of_products=request.POST['number_of_products']
+#          amount_spent=price*number_of_products
+        
+
+#          data=reportinfo(category=category,purchase_product=purchase_product,purchase_date=purchase_date,amount_spent=amount_spent,number_of_products=number_of_products,bill_receipt=bill_receipt)
+#          data.save()
+#     return render(request,'s.html')
+
+# def addexpense(request):
+#     if request.method == 'POST':
+#         category = request.POST['categorySelect']
+#         purchase_product = request.POST['purchase_product']
+#         purchase_date = request.POST['purchase_date']
+#         price = request.POST['price']
+#         number_of_products = request.POST['number_of_products']
+#         bill_receipt = request.FILES['bill_receipt']
+        
+#         amount_spent = price * number_of_products
+
+#         data = reportinfo(
+#             category=category,
+#             purchase_product=purchase_product,
+#             purchase_date=purchase_date,
+#             amount_spent=amount_spent,
+#             number_of_products=number_of_products,
+#             bill_receipt=bill_receipt
+#         )
+#         data.save()
+
+#     return render(request, 's.html')
+
+
+def addexpense(request):
+    if request.method == 'POST':
+        try:
+            category = request.POST['categorySelect']
+            purchase_product = request.POST['purchase_product']
+            purchase_date = request.POST['purchase_date']
+            price = float(request.POST['price'])  # Convert to float
+            number_of_products = int(request.POST['number_of_products'])  # Convert to int
+            bill_receipt = request.FILES['bill_receipt']
+
+            # Validate if needed
+            if not category or not purchase_product or not purchase_date:
+                return HttpResponseBadRequest("Missing required fields.")
+
+            # Check if the 'bill_receipt' file is included in the request.FILES
+            if 'bill_receipt' not in request.FILES:
+                return HttpResponseBadRequest("Missing 'bill_receipt' file in the request.")
+
+            amount_spent = price * number_of_products
+
+            # Now you can proceed with saving the data to the database
+            data = reportinfo(
+                category=category,
+                purchase_product=purchase_product,
+                purchase_date=purchase_date,
+                price=price,
+                number_of_products=number_of_products,
+                bill_receipt=bill_receipt,
+                amount_spent=amount_spent
+            )
+            data.save()
+
+            return HttpResponse("Expense added successfully.")  # or redirect to a success page
+
+        except (KeyError, ValueError) as e:
+            return HttpResponseBadRequest(f"Invalid data or missing required field: {e}")
+
+    return HttpResponseBadRequest("Invalid request method.")  # or handle as needed
+
+def report(request):
+    return render(request,'report.html')
+        
+
+      
+//final one
+
+def addexpense(request):
+    if request.method == 'POST':
+            print(request.POST)
+            # budget = int(request.POST.get('budget'))
+            category = request.POST.get('categorySelect')
+            purchase_product = request.POST['purchase_product']
+            purchase_date = request.POST.get('purchase_date')
+            price = float(request.POST['price'])
+            number_of_products = int(request.POST['number_of_products'])
+            bill_receipt = request.FILES['bill_receipt']
+            # total_expenses 
+            # remaining_value
+            # total
+
+            # Validate if needed
+            # if not category or not purchase_product or not purchase_date or not price_str or not number_of_products_str:
+            #     return HttpResponseBadRequest("Missing required fields.")
+            amount_spent = round(price * number_of_products,3)
+
+            # Now you can proceed with saving the data to the database
+            data = reportinfo(
+                category=category,
+                purchase_product=purchase_product,
+                purchase_date=purchase_date,
+                amount_spent=amount_spent,
+                number_of_products=number_of_products,
+                bill_receipt=bill_receipt,
+            )
+            data.save()
+
+            # return HttpResponse("Expense added successfully.")   or redirect to a success page
+
+            context={
+                   'purchase_product': purchase_product, 
+                   'amount_spent': amount_spent
+                    }
+            # return render(request,'s.html',context)
+    return render(request,'s.html')
+    

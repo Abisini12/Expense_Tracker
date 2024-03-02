@@ -1,0 +1,71 @@
+#features .row {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#features .feature-1,
+#features .feature-2,
+#features .feature-3{
+    flex-basis: 31%;
+    background: url(https://img.freepik.com/free-vector/watercolor-background_87374-69.jpg);
+    /* margin-bottom: 5%; */
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    margin: 10px;
+}
+#features .feature-1{
+    margin-left: 20px;
+}
+
+
+#features .feature-1:hover,
+#features .feature-2:hover,
+#features .feature-3:hover{
+box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+#features {
+    text-align: center;
+}
+
+#features h4 {
+    font-size: 19px;
+}
+
+#features h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+/* @media (max-width: 426px) { 
+    #features h4 {
+        font-size: 12px;
+    }
+    #features p{
+        font-size: 9px;
+    }
+    #features h2 {
+        font-size: 18px;
+    }
+    #features .row {
+        margin-top: 10px;
+    }
+   
+}  */
+@media (max-width: 426px) { 
+    #features h4 {
+        font-size: 12px;
+    }
+    #features p{
+        font-size: 9px;
+    }
+    #features h2 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    #features .row {
+        flex-direction: column;
+        margin: 10px;
+    }
+   
+} 

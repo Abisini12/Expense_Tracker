@@ -1,0 +1,107 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Poppins&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NotoSans', 'Poppins', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+/* whenever referring the id we need to use # before the id name */
+#navbar
+{
+   position: sticky;
+   top:0;
+   left: 0;
+   width: 100%;
+   padding-right: 0px;
+   margin-right: 0px;
+   z-index: 100;
+   padding: 0.5rem 0.5rem;
+   background: black; 
+   box-shadow: 5px 5px 20px rgba(0, 0,0,0.5); 
+}
+/* since we named the navbar using an id navbar we will be using .navbar and then specifying its content to style them */
+.navbar .navbar.brand
+{
+    font-size: 20px;
+    font-weight: 800;
+    
+}
+/* specifying the anchor tag inside navbarSupportedContent to be colored as white and providing a border bottom of 2px */
+#navbarSupportedContent a
+{
+    color: floralwhite;
+    border-bottom: 2px solid transparent;
+}
+/* now going to add a hover effect to it when these buttons are clicked */
+#navbarSupportedContent a:hover
+{
+    width:100%;   
+    border-bottom: 2px solid rgb(250, 84, 117);
+    
+     /* width:30%;   
+     border: 2px solid rgb(250, 84, 117); */
+     
+}
+.bg-image
+{
+    width: 100%;
+    min-height: 90vh;
+    /* to center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/static/media/images/newmobilebg.png");
+    /* background-color: aqua; */
+    /* height: 50vh; */
+    background-size: 100% 100%;  
+    background-position: center;
+    background-repeat: no-repeat; 
+
+}
+section #signup
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#home
+{
+    /* background: url(../homepage/newbg.png);  /*linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),*/
+
+    /* min-height: 50vh; */
+    /* width:100%;
+    height:500px; */
+    border: solid 1px #CCC"
+
+  /* border: solid 2px red; */
+}
+#home h1{
+    letter-spacing: 3px;
+    text-shadow: 0px 1px 0px rgb(28, 28, 28),
+    0px 2px 0px rgb(28, 28, 28);
+    margin-top: 20px;
+}
+.content p {
+    margin-bottom: 0;
+    color: white;
+   text-shadow: 2px 2px 2px black; /* Remove bottom margin for paragraphs */
+}
+.row
+{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+@media (min-width:319px) and (max-width:769px)
+{
+.content p
+{
+    font-size: x-small;
+}
+} 

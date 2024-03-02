@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{%load static %}
+<link rel="stylesheet" href="{%static 'helpcss.css' %}">
+<link rel="stylesheet" href="{%static 'footercss.css' %}">
+<link rel="stylesheet" href="{%static 'concss.css' %}">
+<div class="p-2 d-md-none d-flex" id="sidebar">
+    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        <i class="fa-solid fa-bars" style="margin-right: 10px;"></i>
+    </a>
+    <span>Budget</span><span class="text-warning">Buddy</span>
+</div>
+
+
+
+    <!-- Contact Us -->
+    <div id="contact">
+        <div class="contactus">
+          <div class="title">
+            <h4><span>Get In </span> Touch</h4>
+          </div>
+          <div class="box">
+            <!-- Form to send message -->
+            <div class="contact form">
+              <h3>Message</h3>
+              <form>
+                <div class="formBox">
+                  <div class="rowtype1">
+                    <div class="inputBox">
+                      <span>First Name</span>
+                      <input type="text" placeholder="Abisini">
+                    </div>
+                    <div class="inputBox">
+                      <span>Last Name</span>
+                      <input type="text" placeholder="S R">
+                    </div>
+                  </div>
+                  <div class="rowtype1">
+                    <div class="inputBox">
+                      <span>Email</span>
+                      <input type="text" placeholder="abisinisr@gmail.com">
+                    </div>
+                    <div class="inputBox">
+                      <span>Mobile Number</span>
+                      <input type="text" placeholder="+91 987 654 3210">
+                    </div>
+                  </div>
+    
+                  <div class="rowtype2">
+                    <div class="inputBox">
+                      <span>Message</span>
+                      <textarea placeholder="Enter your Message"></textarea>
+                    </div>
+                  </div>
+    
+                  <div class="rowtype2">
+                    <div class="inputBox">
+                      <span>Message</span>
+                      <input type="submit" value="Send">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+    
+            <!-- info Box -->
+            <div class="contact info">
+              <h3>Contact Information</h3>
+              <div class="infoBox" style="font-size:larger;">
+                <div>
+                  <span><ion-icon name="location"  style="font-size: 1.5em;"></ion-icon></span>
+                  <p>KK Nagar, Tamil Nadu <br>India</p>
+                </div>
+                <div>
+                  <span><ion-icon name="mail"  style="font-size: 1.5em;"></ion-icon></span>
+                  <a href="mailto:abisinisr@gmail.com">abisinisr@gmail.com</a>
+                </div>
+                <div>
+                  <span><ion-icon name="call" style="font-size: 1.5em;"></ion-icon></span>
+                  <a href="tel:+919876543210">+91 987 654 3210</a>
+                </div>
+                <div class="thankmsg">
+                    "Thank you for contacting us! Your message matters.
+                     Our team is on it. Expect a prompt response. 
+                     Explore our offerings on the website while you wait. 
+                     Grateful for your interest!"
+                </div>
+                <!-- Social Media Links -->
+                <!-- <ul class="sci">
+                  <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                  <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                  <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                  <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                </ul> -->
+    
+              </div>
+            </div>
+            <!-- Map -->
+            <div class="contact map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31439.764420402105!2d78.14650229999998!3d9.936408100000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5b8f7f59129%3A0xeebe1c5f4f461423!2sKK%20Nagar%2C%20Tamil%20Nadu%20625020!5e0!3m2!1sen!2sin!4v1703031901377!5m2!1sen!2sin"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+    
+    
+          </div>
+        </div>
+      </div>
+      
+        <!-- Footer -->
+        <div class="footercontainer">
+          <div class="socialicons">
+                  <a href=""><i class="fa-brands fa-facebook"></i></a>
+                  <a href=""><i class="fa-brands fa-twitter"></i></a>
+                  <a href=""><i class="fa-brands fa-instagram"></i></a>
+                  <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                  <a href=""><i class="fa-brands fa-google-plus"></i></a>
+    
+          </div>
+       
+    
+          <div class="footerNav">
+            <ul>
+                   <li><a href="">News</a></li>
+                   <li><a href="">About Us</a></li>
+                   <li><a href="">Privacy Policies</a></li>
+                   <li><a href="">Terms And Use</a></li>
+                   <li><a href="">Licenses</a></li>
+            </ul>
+          </div>
+    
+          <div class="footerbottom">
+               <p>CopyRight &copy;2023; Designed by <span class="designer">Abisini</span></p>
+          </div>
+    </div>  
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+{% endblock %}

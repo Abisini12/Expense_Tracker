@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+* {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: linear-gradient(90deg,#f71564e8 0%,#f71564e8 30%,#f8f351d3 30%,#f8f251d3 100%); */
+    /* background-color: burlywood; */
+    background: linear-gradient(45deg, #f4b523e8 0%, #f7f715bc 30%, #fd88bdde 30%, #f9f7b667 100%);
+}
+
+.contactus {
+    position: relative;
+    padding: 40px 100px;
+    width: 100%;
+    margin: 0;
+}
+
+/* .contactus .title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+} 
+.contactus .title h2 {
+    color: black;
+    font-weight: medium;
+
+}
+*/
+
+.contactus .title h4{
+    position: relative;
+    padding: 0;
+    color:#f91942;
+    line-height: 1;
+    letter-spacing: 0.3px;
+    font-size:2em;
+    font-weight:700;
+    text-align: center;
+    text-transform: none;
+    margin-bottom: 30px;
+  }
+  /* ::after: This is a pseudo-element selector indicating that the styles should be applied to the "after" content of the selected element. */
+  .contactus .title h4::after{
+    content:'';
+    width:60px;
+    height:3px;
+    background:#f91942;
+    position:absolute;
+    bottom:-10px;
+    left:0;
+    right:0;
+    margin:0 auto;
+  }
+  .contactus .title span{
+    font-weight: 700;
+    padding-bottom: 5px;
+    color:#2f2f2f;
+    font-size:inherit;
+  } 
+.form {
+    grid-area: form;
+}
+
+.info {
+    grid-area: info;
+}
+
+.map {
+    grid-area: map;
+}
+
+.contact {
+    padding: 30px;
+    background-color: #ffff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.18);
+}
+
+.box {
+    position: relative;
+    display: grid;
+    /* grid-template-columns: 2fr 1fr; */
+    grid-template-rows: 5fr 4fr;
+    /*fr means fraction */
+    grid-template-areas:
+        "form info"
+        "form map";
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.contact h3 {
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* form styling */
+.formBox {
+    position: relative;
+    width: 100%;
+}
+
+.formBox .rowtype1 {
+    display: flex;
+    gap: 20px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.formBox .rowtype2 .inputBox {
+    width: 100%;
+}
+
+.inputBox span {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: 500;
+}
+
+.inputBox input {
+    padding: 10px;
+    font-size: 1.1rem;
+    outline: none;
+    border: 1px solid #333;
+}
+
+.inputBox textarea {
+    padding: 10px;
+    font-size: 1.1rem;
+    outline: none;
+    border: 1px solid #333;
+    resize: none;
+    min-height: 220px;
+    margin-bottom: 10px;
+}
+
+.inputBox input[type="submit"] {
+    background: rgb(73, 126, 249);
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    max-width: 120px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 14px 15px;
+}
+
+/* .inputBox ::placeholder
+ {
+    color: aqua;
+ } */
+
+/* info styling */
+.info {
+    background: #ffffffd8;
+    height: fit-content;
+}
+
+.info h3 {
+    color: black;
+    font-weight: bold;
+}
+
+.info .infoBox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+.info .infoBox div span {
+    min-height: 50px;
+    height: 50px;
+    background: #f71564e8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-size: 1.5em; */
+    /* font-size: large; */
+    border-radius: 50%;
+    margin-right: 15px;
+    padding: 1px;
+    width: 30px;
+    /* height: 20%; */
+}
+.info .infoBox div span i{
+    font-size: large;
+}
+.info .infoBox div p {
+    color: black;
+}
+
+.info .infoBox div a {
+    color: black;
+}
+.thankmsg
+{
+    text-shadow:1px 1px 2px #33333391;
+}
+/* .sci {
+    margin-top: 40px;
+    display: flex;
+}
+
+.sci li {
+    list-style: none;
+    margin-right: 15px;
+}
+
+.sci li a {
+    color: black;
+    font-size: 2em;
+    /* color: #ccc; 
+}
+
+.sci li a:hover {
+    color: rgb(154, 146, 146);
+} */
+
+.map {
+    padding: 0;
+    margin-bottom: 50px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media(min-width:425px) and (max-width:1023px) {
+    .contactus {
+        padding: 10px;
+    }   
+    .box {
+        grid-gap: 10px;
+    }
+    .contact
+    {
+        width: 380px;
+        margin-right: 10px;
+    }
+    .form
+    {
+        padding: 20px;
+        margin-right: 0px;
+        width: 100%;
+    }
+    .info,.map
+    {
+      width: 100%;
+      padding: 15px; 
+      margin-right: 10px;
+    }
+    .map
+    {
+      padding:0px;
+      height: 100%;
+    }
+}
+@media(max-width:767px)
+{
+    .contactus
+    {
+        padding: 5px;
+    }
+    .contact .contact .form{
+        padding: 20px 40px 20px 20px;
+    }
+    .box {
+        grid-template-areas:
+            "form"
+            "form"
+            "info"
+            "map";  
+    }
+    .form input{
+        padding: 5px;
+        width:95%;
+    }
+    .map,
+    .form,
+    .info{
+        width: 95vw;
+    }  
+   .contact
+   {
+    font-size: 12px;
+    padding: 20px;
+   }
+   .map{
+    padding: 0px;
+   }
+   *
+   {
+    font-size: medium;
+   }
+}

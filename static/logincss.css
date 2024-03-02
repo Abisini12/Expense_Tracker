@@ -1,0 +1,201 @@
+/* .container .col
+{
+    margin-top: 60px;
+}  */
+body
+{
+    padding: 0px;
+    margin:0px;
+    margin-bottom: 70px;
+    /* background: linear-gradient(-45deg,rgba(255, 255, 0, 0.928),rgb(245, 177, 188)); */
+    background: url('/static/media/images/new_bg.png');
+    /* background: linear-gradient(-45deg,rgba(255, 255, 0, 0.928),rgb(245, 177, 188)); */
+}
+h4
+{
+    text-align: center;
+    color:rgba(250, 96, 122, 0.91);
+}
+label
+{
+    font-size: 1.2em;
+    /* font-weight: medium; */
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.input-form i{
+    position: absolute;
+    width: 40px;
+    height: 90%;
+}
+.input-form
+{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.icon
+{
+    padding: 10px;
+    min-width: 40px;
+    max-width: 60px;
+    min-height: 40px;
+    max-height: 60px;
+    
+}
+/* its not wroking so do styling in icon tag itself */
+/* .fa {
+   /* obtained this from inspect as it the icon is imported 
+    font-size: x-large;
+} */
+
+.input-field
+{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    /* box-shadow: inset 0px -1px 3px 0px #e5dcdc; */
+} 
+.container .row
+{
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;  
+    height: 100%;
+    width: 100%;
+    margin-right: 0px;
+   
+}
+.container #col1
+{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    /* background-color: white; */
+    /* background-color: yellow; */
+     align-items: center; 
+    /* align-content: center; */
+
+}
+.container #col2 h2
+{
+    margin: 8px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+img
+{
+    display: flex; 
+    /* align-items: center;
+    justify-content: center;  */
+    width: 100%;
+    height: 80vh;
+    max-width: 100%;
+    margin: 1.5vh;
+    /* this makes margin aat top and bottom only not on sides */
+    margin-top:1.5vh;
+    margin-bottom: 1.5vh;
+    /* height: 50%;
+    width: 50%; */
+    /* margin: 50px;  */
+}  
+.mb-4 {
+    margin: 0.5rem!important;
+}
+.button
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.btn
+{
+    border-radius: 50px;
+    background-color: rgba(250, 96, 122, 0.91);
+    color :white;
+    cursor: pointer;
+}
+.btn:hover{
+    /* background-color: rgba(242, 150, 165, 0.91) ; */
+    /* background-color: rgb(241, 148, 164);
+    font-size: bold;
+    color :black; */
+    background-color: rgba(255, 255, 255, 0.91);
+    color :rgba(255, 10, 153, 0.91) ;
+    font-size: bold;
+    box-shadow: rgba(15, 14, 14, 0.771);
+}
+.social-text
+{
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+.social-media
+{
+    display: flex;
+    justify-content: center;
+}
+.social-icon
+{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(15, 14, 14, 0.771);
+    background-color: white;
+    border: 1px solid #444;
+    border-radius: 50px;
+    margin: 0 5px;
+    text-decoration-line: none;
+    /* background-color: blueviolet; */
+    font-weight: 500;
+    box-shadow: 0px 2px #444;
+    margin-bottom: 10px;
+}
+.social-icon:hover{
+    color: white;
+    background-color: black;
+
+
+}
+#email_error,#pass_error
+{
+   color: red;
+   font-weight: 500;
+   display: none;
+}
+
+/* p{
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: 500;
+} */
+@media screen and (min-width:320px) and (max-width:425px)
+{
+    /* .container
+    {
+        background: linear-gradient(-45deg,rgba(255, 255, 0, 0.928),rgb(245, 177, 188));
+    } */
+body
+{
+   background: url('/static/media/images/new_bg.png');
+   }
+.container #col1
+{
+    width: 90%;
+    height: 90%;
+    margin-top: 20px;
+    /* background-color: green; */
+}
+body{
+    margin-bottom: 20px;
+}
+
+}

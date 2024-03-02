@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {% load static %}
+  
+  <!-- <link rel="stylesheet" href="fcss.css">  -->
+  <link rel="stylesheet" href="{% static 'concss.css' %}">
+  <link rel="stylesheet" href="{% static 'footercss.css' %}">
+  <link rel="stylesheet" href="{% static 'servicecss.css' %}">
+  <link rel="stylesheet" href="{% static 'homecss.css' %}">
+  <title> Homepage</title>
+</head>
+<style>
+  #volume-booster-visusalizer
+  {
+    display: none;
+  }
+  .title h4{
+  position: relative;
+  padding: 0;
+  color:#f91942;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  font-size:2em;
+  font-weight:700;
+  text-align: center;
+  text-transform: none;
+  margin-bottom: 30px;
+}
+/* ::after: This is a pseudo-element selector indicating that the styles should be applied to the "after" content of the selected element. */
+.title h4::after{
+  content:'';
+  width:60px;
+  height:3px;
+  background:#f91942;
+  position:absolute;
+  bottom:-10px;
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+.title h4 span{
+  font-weight: 700;
+  padding-bottom: 5px;
+  color:#2f2f2f;
+  font-size:inherit;
+} 
+.aboutbox
+{
+  padding-bottom:40px !important;
+}
+  @media (max-width:426px)
+  {
+      .aboutbox
+      {
+          padding: 40px 10px 50px 10px !important;
+      }
+  }
+  @media (min-width:700px) and (max-width:769px)
+  {
+    .img-fluid 
+    {
+      height: 90%;
+      width: 90%;
+    }
+  }
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" ><img
+          src="/static/media/images/bblogo.png"
+          height="40" width="40" style="border-radius: 50%;">
+        <span>Budget</span><span class="text-warning">Buddy</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">login</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li> -->
+          <!-- <li class="nav-item">
+                <a class="nav-link" href="#privacycookie">Privacy and Cookie Policy</a>
+              </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- https://www.shutterstock.com/image-vector/financial-accounting-flat-lay-concept-600nw-1851115834.jpg -->
+
+  <!-- home display -->
+  <section id="home" class="bg-image">
+    <h1>BudgetBuddy</h1>
+    <h6>Your Money, Your Rules. Track it Right</h6><br>
+    <div class="content">
+    <p>"Discover financial freedom with our Budget Tracker! </p>
+    <p>Our user-friendly platform simplifies finance management,</p>
+    <p> guiding you on the path to financial wellness."</p>
+   </div>
+    <!-- <button class="btn btn-primary" id="signup">Sign up</button> -->
+    <a href="{% url 'signup' %}" class="btn btn-primary" id="signup">Sign up</a>
+  </section>
+
+  <!-- feature addition -->
+  <!-- <div id="features">
+    <h2 style="text-align: center;">OUR FEATURES</h2>
+    <div class="row">
+      <div class="feature-1">
+        <h4>Budget Alerts and Notifications</h4>
+        <p>Receive timely alerts and notifications when approaching or exceeding budget limits</p>
+      </div>
+      <div class="feature-2">
+        <h4>User Frinedly Interface</h4>
+        <p>With an intuitive interface, users can effortlessly navigate through the application, making the process of
+          recording expenses and managing finances both efficient and enjoyable.</p>
+      </div>
+      <div class="feature-3">
+        <h4>Receipt Capture</h4>
+        <p>Say goodbye to paper clutter. The expense tracker simplifies the record-keeping process by enabling users to
+          capture receipts using their device's camera.</p>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- About  Us -->
+  <div id="about">
+  <div class="aboutbox p-5" style="background-color: rgba(248, 246, 142, 0.446) !important;">
+    <div class="container" >
+      <div class="row gy-3  align-items-lg-center">
+        <div class="col-12 col-lg-6 col-xl-5">
+          <img class="img-fluid rounded" style="border-radius: 50px;" src="/static/media/images/About Us.png" alt="About 1">
+        </div>
+        <div class="col-12 col-lg-6 col-xl-7">
+          <div class="row justify-content-xl-center">
+            <div class="col-12 col-xl-11">
+                <div class="title">
+                    <h4><span>Who Are </span> We?</h4>
+                </div>
+              <p class="lead fs-4 text-secondary mb-3" style="font-size: 16px;">We empower individuals to achieve financial excellence through our cutting-edge expense tracking solutions. Our commitment is to provide unparalleled services that simplify financial management and enhance overall user experience.</p>
+              <p class="mb-5" style="font-size: 1.2em; color: #f91942; font-weight: bold; margin-top: 20px;">We are a dynamic and rapidly evolving team dedicated to revolutionizing expense tracking. Our unwavering commitment to core values—collaboration, innovation, and customer satisfaction—propels our growth. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
+                
+  </div>
+</div>
+
+
+
+
+  <!-- Services -->
+  <div id="services">
+  <div class="pt-5 pb-2">
+    <div class="container">
+      <div class="row">
+        <div class="section-head col-sm-12">
+          <h4><span>Why Choose</span> Me?</h4>
+          <p>Are you tired of managing your expenses manually, dealing with spreadsheets, 
+            and losing track of your financial transactions? Our Expense Tracker Application
+             is the solution you've been searching for. Here are some compelling reasons to 
+            choose our app for your financial management needs:
+
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-users"></i></span>
+            <h6>User-Friendly Interface</h6>
+            <p>Our Expense Tracker boasts a user-friendly interface designed for effortless navigation. With intuitive layout, and accessible features, it caters to users of all levels.</p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_two"><i class="fa fa-upload"></i></span>
+            <h6>Effortless Bill Capture</h6>
+            <p>Say goodbye to manual data entry. Capture your bills and receipts effortlessly by using your device's camera. A single snapshot is all that's needed to kickstart the process.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-laptop"></i></span>
+            <h6>Cross-Platform Accessibility</h6>
+            <p>Our Application is accessible across various platforms, including web browsers, iOS, and Android. Manage your expenses seamlessly from any device.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-line-chart"></i></span>
+            <h6>Expense Insights and Reports</h6>
+            <p>Gain valuable insights into your spending habits with detailed reports and analytics. Identify areas where you can cut costs, optimize your budget, and work towards financial stability.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-comments"></i></span>
+            <h6>User Feedback and Suggestion</h6>
+            <p>Feedback mechanism to allow users to report issues directly within the app which promotes continuous improvement, ensuring the app meets user needs effectively.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-shield"></i></span>
+            <h6>Secure and Private</h6>
+            <p>We prioritize the security and privacy of your financial data. Our application employs robust encryption and security measures to ensure that your sensitive information remains confidential.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+
+    <!-- Contact Us -->
+    <div id="contact">
+    <div class="contactus">
+      <div class="title">
+        <h4><span>Get In </span> Touch</h4>
+      </div>
+      <div class="box">
+        <!-- Form to send message -->
+        <div class="contact form">
+          <h3>Message</h3>
+          <form>
+            <div class="formBox">
+              <div class="rowtype1">
+                <div class="inputBox">
+                  <span>First Name</span>
+                  <input type="text" placeholder="Abisini">
+                </div>
+                <div class="inputBox">
+                  <span>Last Name</span>
+                  <input type="text" placeholder="S R">
+                </div>
+              </div>
+              <div class="rowtype1">
+                <div class="inputBox">
+                  <span>Email</span>
+                  <input type="text" placeholder="abisinisr@gmail.com">
+                </div>
+                <div class="inputBox">
+                  <span>Mobile Number</span>
+                  <input type="text" placeholder="+91 987 654 3210">
+                </div>
+              </div>
+
+              <div class="rowtype2">
+                <div class="inputBox">
+                  <span>Message</span>
+                  <textarea placeholder="Enter your Message"></textarea>
+                </div>
+              </div>
+
+              <div class="rowtype2">
+                <div class="inputBox">
+                  <span>Message</span>
+                  <input type="submit" value="Send">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- info Box -->
+        <div class="contact info">
+          <h3>Contact Information</h3>
+          <div class="infoBox" style="font-size:larger;">
+            <div>
+              <span><ion-icon name="location"  style="font-size: 1.5em;"></ion-icon></span>
+              <p>KK Nagar, Tamil Nadu <br>India</p>
+            </div>
+            <div>
+              <span><ion-icon name="mail"  style="font-size: 1.5em;"></ion-icon></span>
+              <a href="mailto:abisinisr@gmail.com">abisinisr@gmail.com</a>
+            </div>
+            <div>
+              <span><ion-icon name="call" style="font-size: 1.5em;"></ion-icon></span>
+              <a href="tel:+919876543210">+91 987 654 3210</a>
+            </div>
+            <div class="thankmsg">
+                "Thank you for contacting us! Your message matters.
+                 Our team is on it. Expect a prompt response. 
+                 Explore our offerings on the website while you wait. 
+                 Grateful for your interest!"
+            </div>
+            <!-- Social Media Links -->
+            <!-- <ul class="sci">
+              <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+              <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+              <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            </ul> -->
+
+          </div>
+        </div>
+        <!-- Map -->
+        <div class="contact map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31439.764420402105!2d78.14650229999998!3d9.936408100000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5b8f7f59129%3A0xeebe1c5f4f461423!2sKK%20Nagar%2C%20Tamil%20Nadu%20625020!5e0!3m2!1sen!2sin!4v1703031901377!5m2!1sen!2sin"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  
+    <!-- Footer -->
+    <div class="footercontainer">
+      <div class="socialicons">
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-linkedin"></i></a>
+              <a href=""><i class="fa-brands fa-google-plus"></i></a>
+
+      </div>
+   
+
+      <div class="footerNav">
+        <ul>
+               <li><a href="">News</a></li>
+               <li><a href="">About Us</a></li>
+               <li><a href="">Privacy Policies</a></li>
+               <li><a href="">Terms And Use</a></li>
+               <li><a href="">Licenses</a></li>
+        </ul>
+      </div>
+
+      <div class="footerbottom">
+           <p>CopyRight &copy;2023; Designed by <span class="designer">Abisini</span></p>
+      </div>
+</div>  
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
